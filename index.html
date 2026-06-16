@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura & Essence | Perfumería Árabe Premium</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Parche definitivo para el menú desplegable -->
+    <style>
+        .navbar {
+            z-index: 99999 !important;
+        }
+        
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px; 
+            margin-bottom: -15px;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #161616;
+            min-width: 190px;
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.6);
+            z-index: 999999 !important;
+            border-radius: 6px;
+            top: 100%; 
+            left: 0;
+            border: 1px solid #2a2a2a;
+            overflow: hidden;
+        }
+        
+        .dropdown-content a {
+            color: #ffffff !important;
+            padding: 12px 18px;
+            text-decoration: none;
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #222222;
+            color: #d4af37 !important;
+            padding-left: 22px;
+        }
+        
+        .dropdown:hover .dropdown-content,
+        .dropdown.active .dropdown-content {
+            display: block !important;
+        }
+
+        @media (max-width: 768px) {
+            .dropdown {
+                padding-bottom: 0;
+                margin-bottom: 0;
+            }
+            .dropdown-content {
+                position: relative;
+                float: none;
+                min-width: 100%;
+                box-shadow: none;
+                background-color: #222;
+                top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="navbar">
+        <a href="#" class="nav-logo">Aura & Essence</a>
+        <ul class="nav-links">
+            <li><a href="#" class="filter-btn" data-type="category" data-value="todos">Inicio</a></li>
+            <li><a href="#" class="filter-btn" data-type="category" data-value="hombre">Hombres</a></li>
+            <li><a href="#" class="filter-btn" data-type="category" data-value="mujer">Mujeres</a></li>
+            <li><a href="#" class="filter-btn" data-type="category" data-value="unisex">Unisex</a></li>
+            
+            <!-- MENÚ DESPLEGABLE DE CASAS -->
+            <li class="dropdown" id="brands-dropdown">
+                <a href="#" class="dropdown-toggle" style="cursor: pointer; display: inline-block;">Casas de Perfumería ▾</a>
+                <div class="dropdown-content">
+                    <a href="#" class="filter-btn" data-type="brand" data-value="Lattafa">Lattafa</a>
+                    <a href="#" class="filter-btn" data-type="brand" data-value="Rayhaan">Rayhaan</a>
+                    <a href="#" class="filter-btn" data-type="brand" data-value="French Avenue">French Avenue</a>
+                    <a href="#" class="filter-btn" data-type="brand" data-value="Dumont Paris">Dumont Paris</a>
+                    <a href="#" class="filter-btn" data-type="brand" data-value="Afnan">Afnan</a>
+                    <a href="#" class="filter-btn" data-type="brand" data-value="Armaf">Armaf</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- BANNER PRINCIPAL (HERO) -->
+    <header class="hero">
+        <div class="hero-content">
+            <span class="hero-subtitle">Alta Perfumería Árabe</span>
+            <h1 class="hero-title">El Lujo de Oriente en tu Piel</h1>
+            <button class="hero-btn" id="explore-btn">Explorar Catálogo</button>
+        </div>
+    </header>
+
+    <!-- SECCIÓN DE PRODUCTOS -->
+    <main class="catalog-container" id="catalog">
+        <div class="section-header">
+            <h2>Fragancias Destacadas</h2>
+            <p>Haz clic en cualquier perfume para consultar stock e iniciar tu pedido por WhatsApp</p>
+        </div>
+
+        <div class="products-grid">
+            
+            <!-- PRODUCTO 1: Khamrah -->
+            <div class="product-card" data-gender="unisex" data-brand="Lattafa">
+                <span class="product-badge">Unisex</span>
+                <div class="product-image-wrapper">
+                    <img src="imagenes/khamrah.jpg" alt="Lattafa Khamrah" class="product-image">
+                </div>
+                <div class="product-info">
+                    <p class="product-brand">Lattafa</p>
+                    <h3 class="product-name">Khamrah</h3>
+                    <p class="product-desc">100ml · EDP</p>
+                    <p class="product-price">$32.000</p>
+                    <div class="action-container">
+                        <button class="whatsapp-btn">Consultar Stock</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCTO 2: Yara -->
+            <div class="product-card" data-gender="mujer" data-brand="Lattafa">
+                <span class="product-badge">Mujer</span>
+                <div class="product-image-wrapper">
+                    <img src="imagenes/yara.jpg" alt="Lattafa Yara" class="product-image">
+                </div>
+                <div class="product-info">
+                    <p class="product-brand">Lattafa</p>
+                    <h3 class="product-name">Yara</h3>
+                    <p class="product-desc">100ml · EDP</p>
+                    <p class="product-price">$30.000</p>
+                    <div class="action-container">
+                        <button class="whatsapp-btn">Consultar Stock</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCTO 3: Fakhar Women -->
+            <div class="product-card" data-gender="mujer" data-brand="Lattafa">
+                <span class="product-badge">Mujer</span>
+                <div class="product-image-wrapper">
+                    <img src="imagenes/fakhar-women.jpg" alt="Lattafa Fakhar Women" class="product-image">
+                </div>
+                <div class="product-info">
+                    <p class="product-brand">Lattafa</p>
+                    <h3 class="product-name">Fakhar Women</h3>
+                    <p class="product-desc">100ml · EDP</p>
+                    <p class="product-price">$27.000</p>
+                    <div class="action-container">
+                        <button class="whatsapp-btn">Consultar Stock</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCTO 4: Tropical Vibe -->
+            <div class="product-card" data-gender="unisex" data-brand="Rayhaan">
+                <span class="product-badge">Unisex</span>
+                <div class="product-image-wrapper">
+                    <img src="imagenes/tropical-vibe.jpg" alt="Rayhaan Tropical Vibe" class="product-image">
+                </div>
+                <div class="product-info">
+                    <p class="product-brand">Rayhaan</p>
+                    <h3 class="product-name">Tropical Vibe</h3>
+                    <p class="product-desc">100ml · EDP</p>
+                    <p class="product-price">$36.000</p>
+                    <div class="action-container">
+                        <button class="whatsapp-btn">Consultar Stock</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCTO 5: Terra -->
+            <div class="product-card" data-gender="hombre" data-brand="Rayhaan">
+                <span class="product-badge">Hombre</span>
+                <div class="product-image-wrapper">
+                    <img src="imagenes/terra.jpg" alt="Rayhaan Terra" class="product-image">
+                </div>
+                <div class="product-info">
+                    <p class="product-brand">Rayhaan</p>
+                    <h3 class="product-name">Terra</h3>
+                    <p class="product-desc">100ml · EDP</p>
+                    <p class="product-price">$34.000</p>
+                    <div class="action-container">
+                        <button class="whatsapp-btn">Consultar Stock</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCTO 6: Eclaire -->
+            <div class="product-card" data-gender="mujer" data-brand="Lattafa">
+                <span class="product-badge">Mujer</span>
+                <div class="product-image-wrapper">
+                    <img src="imagenes/eclaire.jpg" alt="Lattafa Eclaire" class="product-image">
+                </div>
+                <div class="product-info">
+                    <p class="product-brand">Lattafa</p>
+                    <h3 class="product-name">Eclaire</h3>
+                    <p class="product-desc">100ml · EDP</p>
+                    <p class="product-price">$38.000</p>
+                    <div class="action-container">
+                        <button class="whatsapp-btn">Consultar Stock</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCTO 7: Vulcan Feu -->
+            <div class="product-card" data-gender="unisex" data-brand="French Avenue">
+                <span class="product-badge">Unisex</span>
+                <div class="product-image-wrapper">
+                    <img src="imagenes/vulcan-feu.jpg" alt="French Avenue Vulcan Feu" class="product-image">
+                </div>
+                <div class="product-info">
+                    <p class="product-brand">French Avenue</p>
+                    <h3 class="product-name">Vulcan Feu</h3>
+                    <p class="product-desc">100ml · EDP</p>
+                    <p class="product-price">$42.000</p>
+                    <div class="action-container">
+                        <button class="whatsapp-btn">Consultar Stock</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCTO 8: Nitro Red -->
+            <div class="product-card" data-gender="hombre" data-brand="Dumont Paris">
+                <span class="product-badge">Hombre</span>
+                <div class="product-image-wrapper">
+                    <img src="imagenes/nitro-red.jpg" alt="Dumont Paris Nitro Red" class="product-image">
+                </div>
+                <div class="product-info">
+                    <p class="product-brand">Dumont Paris</p>
+                    <h3 class="product-name">Nitro Red</h3>
+                    <p class="product-desc">100ml · EDP</p>
+                    <p class="product-price">$40.000</p>
+                    <div class="action-container">
+                        <button class="whatsapp-btn">Consultar Stock</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCTO 9: 9PM -->
+            <div class="product-card" data-gender="hombre" data-brand="Afnan">
+                <span class="product-badge">Hombre</span>
+                <div class="product-image-wrapper">
+                    <img src="imagenes/9pm.jpg" alt="Afnan 9PM" class="product-image">
+                </div>
+                <div class="product-info">
+                    <p class="product-brand">Afnan</p>
+                    <h3 class="product-name">9PM</h3>
+                    <p class="product-desc">100ml · EDP</p>
+                    <p class="product-price">$37.000</p>
+                    <div class="action-container">
+                        <button class="whatsapp-btn">Consultar Stock</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCTO 10: Liquid Brun -->
+            <div class="product-card" data-gender="hombre" data-brand="French Avenue">
+                <span class="product-badge">Hombre</span>
+                <div class="product-image-wrapper">
+                    <img src="imagenes/liquid-brun.jpg" alt="French Avenue Liquid Brun" class="product-image">
+                </div>
+                <div class="product-info">
+                    <p class="product-brand">French Avenue</p>
+                    <h3 class="product-name">Liquid Brun</h3>
+                    <p class="product-desc">100ml · EDP</p>
+                    <p class="product-price">$37.000</p>
+                    <div class="action-container">
+                        <button class="whatsapp-btn">Consultar Stock</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCTO 11: Odyssey Homme White Edition -->
+            <div class="product-card" data-gender="hombre" data-brand="Armaf">
+                <span class="product-badge">Hombre</span>
+                <div class="product-image-wrapper">
+                    <img src="imagenes/odyssey-white.jpg" alt="Armaf Odyssey Homme White Edition" class="product-image">
+                </div>
+                <div class="product-info">
+                    <p class="product-brand">Armaf</p>
+                    <h3 class="product-name">Odyssey Homme White Edition</h3>
+                    <p class="product-desc">100ml · EDP</p>
+                    <p class="product-price">$36.000</p>
+                    <div class="action-container">
+                        <button class="whatsapp-btn">Consultar Stock</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCTO 12: Club de Nuit Iconic -->
+            <div class="product-card" data-gender="hombre" data-brand="Armaf">
+                <span class="product-badge">Hombre</span>
+                <div class="product-image-wrapper">
+                    <img src="imagenes/club-de-nuit-iconic.jpg" alt="Armaf Club de Nuit Iconic" class="product-image">
+                </div>
+                <div class="product-info">
+                    <p class="product-brand">Armaf</p>
+                    <h3 class="product-name">Club de Nuit Iconic</h3>
+                    <p class="product-desc">105ml · EDP</p>
+                    <p class="product-price">$46.000</p>
+                    <div class="action-container">
+                        <button class="whatsapp-btn">Consultar Stock</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCTO 13: The Kingdom -->
+            <div class="product-card" data-gender="hombre" data-brand="Lattafa">
+                <span class="product-badge">Hombre</span>
+                <div class="product-image-wrapper">
+                    <img src="imagenes/the-kingdom.jpg" alt="Lattafa The Kingdom" class="product-image">
+                </div>
+                <div class="product-info">
+                    <p class="product-brand">Lattafa</p>
+                    <h3 class="product-name">The Kingdom</h3>
+                    <p class="product-desc">100ml · EDP</p>
+                    <p class="product-price">$37.000</p>
+                    <div class="action-container">
+                        <button class="whatsapp-btn">Consultar Stock</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4 class="footer-title">Aura & Essence</h4>
+                <p>Traemos la magia y el misticismo de los mejores perfumes árabes directamente a Chile.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contacto</h4>
+                <p>Atención personalizada vía WhatsApp de Lunes a Domingo.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Aura & Essence. Entregas presenciales en centro de Concepción, Bio-Bio , Chile.</p>
+        </div>
+    </footer>
+
+    <!-- Vinculación del Cerebro de la página -->
+    <script src="script.js"></script>
+
+    <!-- MOTOR DE FILTRADO AVANZADO + ENLACES DE WHATSAPP INTELIGENTES -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // === TU TELÉFONO CONFIGURADO ===
+            const miTelefonoWhatsApp = "56957301930"; 
+
+
+            // 1. SISTEMA DE WHATSAPP AUTOMÁTICO PARA LOS BOTONES
+            const whatsappButtons = document.querySelectorAll(".whatsapp-btn");
+            
+            whatsappButtons.forEach(button => {
+                button.addEventListener("click", function() {
+                    const card = this.closest(".product-card");
+                    const brand = card.querySelector(".product-brand").innerText;
+                    const name = card.querySelector(".product-name").innerText;
+                    const desc = card.querySelector(".product-desc").innerText;
+                    
+                    const textoMensaje = `Hola Aura & Essence! Me interesa consultar la disponibilidad del perfume ${brand} ${name} (${desc}). ¿Tienen stock disponible?`;
+                    const urlMensaje = encodeURIComponent(textoMensaje);
+                    
+                    window.open(`https://wa.me/${miTelefonoWhatsApp}?text=${urlMensaje}`, '_blank');
+                });
+            });
+
+
+            // 2. SISTEMA DE FILTRADO AVANZADO (CATEGORÍAS Y CASAS)
+            const filterButtons = document.querySelectorAll(".filter-btn");
+            const productCards = document.querySelectorAll(".product-card");
+            const dropdown = document.getElementById("brands-dropdown");
+
+            if(dropdown) {
+                dropdown.querySelector(".dropdown-toggle").addEventListener("click", function(e) {
+                    e.preventDefault();
+                    dropdown.classList.toggle("active");
+                });
+            }
+
+            filterButtons.forEach(button => {
+                button.addEventListener("click", function(e) {
+                    e.preventDefault();
+                    e.stopPropagation(); 
+                    
+                    const filterType = this.getAttribute("data-type");
+                    const filterValue = this.getAttribute("data-value");
+
+                    productCards.forEach(card => {
+                        const gender = card.getAttribute("data-gender");
+                        const brand = card.getAttribute("data-brand");
+
+                        if (filterType === "category") {
+                            if (filterValue === "todos" || gender === filterValue) {
+                                card.style.display = ""; 
+                            } else {
+                                card.style.display = "none";
+                            }
+                        } else if (filterType === "brand") {
+                            if (brand === filterValue) {
+                                card.style.display = ""; 
+                            } else {
+                                card.style.display = "none";
+                            }
+                        }
+                    });
+
+                    if(dropdown) {
+                        dropdown.classList.remove("active");
+                    }
+                });
+            });
+
+            document.addEventListener("click", function() {
+                if(dropdown) dropdown.classList.remove("active");
+            });
+        });
+    </script>
+</body>
+</html>
