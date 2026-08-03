@@ -218,8 +218,10 @@ body {
     letter-spacing: 1px;
 }
 
+/* SEGUNDA ETIQUETA EN OFERTA */
 .product-badge.badge-sale {
-    background-color: #c0392b;
+    background-color: #c0392b !important;
+    top: 2.6rem !important; /* Se posiciona debajo de la primera etiqueta */
 }
 
 .product-image-wrapper {
@@ -271,7 +273,7 @@ body {
     font-weight: 600;
 }
 
-/* ESTILOS DE PRECIO DE OFERTA */
+/* CONTENEDOR DE OFERTAS */
 .product-price-box {
     display: flex;
     justify-content: center;
@@ -280,18 +282,21 @@ body {
     margin-top: 0.3rem;
 }
 
+/* PRECIO ANTERIOR TACHADO */
 .price-original {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.8rem;
-    color: #999999;
-    text-decoration: line-through;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 0.8rem !important;
+    color: #999999 !important;
+    text-decoration: line-through !important;
+    -webkit-text-decoration-line: line-through !important;
 }
 
+/* PRECIO DE OFERTA DESTACADO */
 .price-offer {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: #c0392b;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    color: #c0392b !important;
 }
 
 /* BOTÓN DE WHATSAPP */
