@@ -12,71 +12,6 @@
 
     <!-- Estilos -->
     <link rel="stylesheet" href="styles.css">
-
-    <!-- Parche definitivo para el menú desplegable -->
-    <style>
-        .navbar {
-            z-index: 99999 !important;
-        }
-        
-        .dropdown {
-            position: relative;
-            display: inline-block;
-            padding-bottom: 15px; 
-            margin-bottom: -15px;
-        }
-        
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #161616;
-            min-width: 190px;
-            box-shadow: 0px 10px 25px rgba(0,0,0,0.6);
-            z-index: 999999 !important;
-            border-radius: 6px;
-            top: 100%; 
-            left: 0;
-            border: 1px solid #2a2a2a;
-            overflow: hidden;
-        }
-        
-        .dropdown-content a {
-            color: #ffffff !important;
-            padding: 12px 18px;
-            text-decoration: none;
-            display: block;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            text-align: left;
-            transition: all 0.3s ease;
-        }
-        
-        .dropdown-content a:hover {
-            background-color: #222222;
-            color: #d4af37 !important;
-            padding-left: 22px;
-        }
-        
-        .dropdown:hover .dropdown-content,
-        .dropdown.active .dropdown-content {
-            display: block !important;
-        }
-
-        @media (max-width: 768px) {
-            .dropdown {
-                padding-bottom: 0;
-                margin-bottom: 0;
-            }
-            .dropdown-content {
-                position: relative;
-                float: none;
-                min-width: 100%;
-                box-shadow: none;
-                background-color: #222;
-                top: 0;
-            }
-        }
-    </style>
 </head>
 <body>
 
@@ -91,7 +26,7 @@
             
             <!-- MENÚ DESPLEGABLE DE CASAS -->
             <li class="dropdown" id="brands-dropdown">
-                <a href="#" class="dropdown-toggle" style="cursor: pointer; display: inline-block;">Casas de Perfumería ▾</a>
+                <a href="#" class="dropdown-toggle">Casas de Perfumería ▾</a>
                 <div class="dropdown-content">
                     <a href="#" class="filter-btn" data-type="brand" data-value="Lattafa">Lattafa</a>
                     <a href="#" class="filter-btn" data-type="brand" data-value="Rayhaan">Rayhaan</a>
@@ -344,8 +279,8 @@
                 </div>
             </div>
 
-              <!-- PRODUCTO 14: Fakhar Extrait Gold -->
-            <div class="product-card" data-gender="Unisex" data-brand="Lattafa">
+            <!-- PRODUCTO 14: Fakhar Extrait Gold -->
+            <div class="product-card" data-gender="unisex" data-brand="Lattafa">
                 <span class="product-badge">Unisex</span>
                 <div class="product-image-wrapper">
                     <img src="imagenes/extrait-gold.jpg" alt="Lattafa Fakhar Gold Extrait" class="product-image">
@@ -361,8 +296,8 @@
                 </div>
             </div>
 
-             <!-- PRODUCTO 15: Lattafa Asad -->
-            <div class="product-card" data-gender="Hombre" data-brand="Lattafa">
+            <!-- PRODUCTO 15: Lattafa Asad -->
+            <div class="product-card" data-gender="hombre" data-brand="Lattafa">
                 <span class="product-badge">Hombre</span>
                 <div class="product-image-wrapper">
                     <img src="imagenes/asad.jpg" alt="Lattafa Asad" class="product-image">
@@ -378,8 +313,8 @@
                 </div>
             </div>
 
-             <!-- PRODUCTO 16: Lattafa Nebras -->
-            <div class="product-card" data-gender="Mujer" data-brand="Lattafa">
+            <!-- PRODUCTO 16: Lattafa Nebras -->
+            <div class="product-card" data-gender="mujer" data-brand="Lattafa">
                 <span class="product-badge">Mujer</span>
                 <div class="product-image-wrapper">
                     <img src="imagenes/nebras.jpg" alt="Lattafa Nebras" class="product-image">
@@ -395,8 +330,8 @@
                 </div>
             </div>
 
-             <!-- PRODUCTO 17: Sceptre Desert -->
-            <div class="product-card" data-gender="Mujer" data-brand="Maison Alhambra">
+            <!-- PRODUCTO 17: Sceptre Desert -->
+            <div class="product-card" data-gender="mujer" data-brand="Maison Alhambra">
                 <span class="product-badge">Mujer</span>
                 <div class="product-image-wrapper">
                     <img src="imagenes/sceptre-desert.jpg" alt="Maison Alhambra Sceptre Desert" class="product-image">
@@ -412,8 +347,8 @@
                 </div>
             </div>
 
-             <!-- PRODUCTO 18: Mandarin Sky Odyssey -->
-            <div class="product-card" data-gender="Hombre" data-brand="Armaf">
+            <!-- PRODUCTO 18: Mandarin Sky Odyssey -->
+            <div class="product-card" data-gender="hombre" data-brand="Armaf">
                 <span class="product-badge">Hombre</span>
                 <div class="product-image-wrapper">
                     <img src="imagenes/mandarin-sky.jpg" alt="Armaf Odyssey Mandarin Sky" class="product-image">
@@ -445,87 +380,11 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Aura & Essence. Entregas presenciales en centro de Concepción, Bio-Bio , Chile.</p>
+            <p>&copy; 2026 Aura & Essence. Entregas presenciales en centro de Concepción, Bio-Bío, Chile.</p>
         </div>
     </footer>
 
-    <!-- Vinculación del Cerebro de la página -->
+    <!-- Vinculación del JavaScript -->
     <script src="script.js"></script>
-
-    <!-- MOTOR DE FILTRADO AVANZADO + ENLACES DE WHATSAPP INTELIGENTES -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // === TU TELÉFONO CONFIGURADO ===
-            const miTelefonoWhatsApp = "56957301930"; 
-
-
-            // 1. SISTEMA DE WHATSAPP AUTOMÁTICO PARA LOS BOTONES
-            const whatsappButtons = document.querySelectorAll(".whatsapp-btn");
-            
-            whatsappButtons.forEach(button => {
-                button.addEventListener("click", function() {
-                    const card = this.closest(".product-card");
-                    const brand = card.querySelector(".product-brand").innerText;
-                    const name = card.querySelector(".product-name").innerText;
-                    const desc = card.querySelector(".product-desc").innerText;
-                    
-                    const textoMensaje = `Hola Aura & Essence! Me interesa consultar la disponibilidad del perfume ${brand} ${name} (${desc}). ¿Tienen stock disponible?`;
-                    const urlMensaje = encodeURIComponent(textoMensaje);
-                    
-                    window.open(`https://wa.me/${miTelefonoWhatsApp}?text=${urlMensaje}`, '_blank');
-                });
-            });
-
-
-            // 2. SISTEMA DE FILTRADO AVANZADO (CATEGORÍAS Y CASAS)
-            const filterButtons = document.querySelectorAll(".filter-btn");
-            const productCards = document.querySelectorAll(".product-card");
-            const dropdown = document.getElementById("brands-dropdown");
-
-            if(dropdown) {
-                dropdown.querySelector(".dropdown-toggle").addEventListener("click", function(e) {
-                    e.preventDefault();
-                    dropdown.classList.toggle("active");
-                });
-            }
-
-            filterButtons.forEach(button => {
-                button.addEventListener("click", function(e) {
-                    e.preventDefault();
-                    e.stopPropagation(); 
-                    
-                    const filterType = this.getAttribute("data-type");
-                    const filterValue = this.getAttribute("data-value");
-
-                    productCards.forEach(card => {
-                        const gender = card.getAttribute("data-gender");
-                        const brand = card.getAttribute("data-brand");
-
-                        if (filterType === "category") {
-                            if (filterValue === "todos" || gender === filterValue) {
-                                card.style.display = ""; 
-                            } else {
-                                card.style.display = "none";
-                            }
-                        } else if (filterType === "brand") {
-                            if (brand === filterValue) {
-                                card.style.display = ""; 
-                            } else {
-                                card.style.display = "none";
-                            }
-                        }
-                    });
-
-                    if(dropdown) {
-                        dropdown.classList.remove("active");
-                    }
-                });
-            });
-
-            document.addEventListener("click", function() {
-                if(dropdown) dropdown.classList.remove("active");
-            });
-        });
-    </script>
 </body>
 </html>
