@@ -57,7 +57,7 @@ body {
     color: #C5A880;
 }
 
-/* MENÚ DESPLEGABLE */
+/* MENÚ DESPLEGABLE DE CASAS */
 .dropdown {
     position: relative;
     display: inline-block;
@@ -218,6 +218,10 @@ body {
     letter-spacing: 1px;
 }
 
+.product-badge.badge-sale {
+    background-color: #c0392b;
+}
+
 .product-image-wrapper {
     aspect-ratio: 1 / 1;
     overflow: hidden;
@@ -267,7 +271,30 @@ body {
     font-weight: 600;
 }
 
-/* BOTÓN WHATSAPP */
+/* ESTILOS DE PRECIO DE OFERTA */
+.product-price-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.3rem;
+}
+
+.price-original {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    color: #999999;
+    text-decoration: line-through;
+}
+
+.price-offer {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #c0392b;
+}
+
+/* BOTÓN DE WHATSAPP */
 .action-container {
     margin-top: 1rem;
 }
@@ -322,7 +349,7 @@ body {
     font-size: 0.7rem;
 }
 
-/* MEDIA QUERIES */
+/* RESPONSIVE */
 @media (max-width: 768px) {
     .nav-links { 
         display: none; 
