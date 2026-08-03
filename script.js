@@ -1,66 +1,84 @@
-// ==========================================
-// CONFIGURACIÓN CENTRAL DE TU TIENDA
-// ==========================================
-const MI_WHATSAPP = "56957301930"; 
+document.addEventListener("DOMContentLoaded", function () {
+    // Número de teléfono configurado
+    const miTelefonoWhatsApp = "56957301930";
 
-document.addEventListener("DOMContentLoaded", () => {
+    // 1. INTEGRACIÓN CON WHATSAPP
+    const whatsappButtons = document.querySelectorAll(".whatsapp-btn");
 
-    // 1. FUNCIONALIDAD DE LOS BOTONES DE WHATSAPP
-    const botonesWhatsApp = document.querySelectorAll(".whatsapp-btn");
+    whatsappButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            const card = this.closest(".product-card");
+            const brand = card.querySelector(".product-brand").innerText;
+            const name = card.querySelector(".product-name").innerText;
+            const desc = card.querySelector(".product-desc").innerText;
 
-    botonesWhatsApp.forEach(boton => {
-        boton.addEventListener("click", (e) => {
-            // Buscamos la tarjeta contenedora del producto para sacar sus datos
-            const tarjetaProducto = e.target.closest(".product-card");
-            
-            // Extraemos los textos exactos de la interfaz
-            const marca = tarjetaProducto.querySelector(".product-brand").innerText;
-            const nombre = tarjetaProducto.querySelector(".product-name").innerText;
-            const precio = tarjetaProducto.querySelector(".product-price").innerText;
+            const textoMensaje = `Hola Aura & Essence! Me interesa consultar la disponibilidad del perfume ${brand} ${name} (${desc}). ¿Tienen stock disponible?`;
+            const urlMensaje = encodeURIComponent(textoMensaje);
 
-            // Creamos un mensaje amigable y bien formateado para ti
-            const mensajeFormateado = `Hola! Me gustaría consultar disponibilidad del perfume: *${marca} - ${nombre}* (${precio}). ¿Tienen stock disponible?`;
-            
-            // Codificamos el mensaje para que sea válido en un enlace URL
-            const mensajeEnlace = encodeURIComponent(mensajeFormateado);
-            
-            // Creamos la dirección final hacia WhatsApp
-            const urlWhatsApp = `https://wa.me/${MI_WHATSAPP}?text=${mensajeEnlace}`;
-            
-            // Abrimos en una pestaña nueva
-            window.open(urlWhatsApp, '_blank');
+            window.open(`https://wa.me/${miTelefonoWhatsApp}?text=${urlMensaje}`, '_blank');
         });
     });
 
-    // 2. FILTRADO DINÁMICO DEL CATÁLOGO (MENÚ DE NAVEGACIÓN)
-    const enlacesFiltro = document.querySelectorAll(".filter-btn");
-    const tarjetasProductos = document.querySelectorAll(".product-card");
+    // 2. SISTEMA DE FILTRADO AVANZADO Y MENÚ DESPLEGABLE
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const productCards = document.querySelectorAll(".product-card");
+    const dropdown = document.getElementById("brands-dropdown");
 
-    enlacesFiltro.forEach(enlace => {
-        enlace.addEventListener("click", (e) => {
+    if (dropdown) {
+        const toggleBtn = dropdown.querySelector(".dropdown-toggle");
+        if (toggleBtn) {
+            toggleBtn.addEventListener("click", function (e) {
+                e.preventDefault();
+                dropdown.classList.toggle("active");
+            });
+        }
+    }
+
+    filterButtons.forEach(button => {
+        button.addEventListener("click", function (e) {
             e.preventDefault();
-            const categoria = e.target.getAttribute("data-category");
+            e.stopPropagation();
 
-            tarjetasProductos.forEach(tarjeta => {
-                const generoTarjeta = tarjeta.getAttribute("data-gender");
+            const filterType = this.getAttribute("data-type");
+            const filterValue = this.getAttribute("data-value").toLowerCase();
 
-                if (categoria === "todos" || generoTarjeta === categoria) {
-                    tarjeta.style.style.display = "block"; // Volví a corregir esto por si acaso
-                    tarjeta.style.display = "block"; 
-                } else {
-                    tarjeta.style.display = "none";  // Oculta
+            productCards.forEach(card => {
+                const gender = (card.getAttribute("data-gender") || "").toLowerCase();
+                const brand = (card.getAttribute("data-brand") || "").toLowerCase();
+
+                if (filterType === "category") {
+                    if (filterValue === "todos" || gender === filterValue) {
+                        card.style.display = "";
+                    } else {
+                        card.style.display = "none";
+                    }
+                } else if (filterType === "brand") {
+                    if (brand === filterValue) {
+                        card.style.display = "";
+                    } else {
+                        card.style.display = "none";
+                    }
                 }
             });
+
+            if (dropdown) {
+                dropdown.classList.remove("active");
+            }
         });
     });
 
-    // 3. BOTÓN EXPLORAR DEL HERO
-    const botonExplorar = document.getElementById("explore-btn");
-    const seccionCatalogo = document.getElementById("catalog");
+    // Cerrar menú si se hace clic fuera
+    document.addEventListener("click", function () {
+        if (dropdown) dropdown.classList.remove("active");
+    });
 
-    if (botonExplorar && seccionCatalogo) {
-        botonExplorar.addEventListener("click", () => {
-            seccionCatalogo.scrollIntoView({ behavior: "smooth" });
+    // 3. SCROLL SUAVE AL HACER CLIC EN 'EXPLORAR CATÁLOGO'
+    const exploreBtn = document.getElementById("explore-btn");
+    const catalogSection = document.getElementById("catalog");
+
+    if (exploreBtn && catalogSection) {
+        exploreBtn.addEventListener("click", function () {
+            catalogSection.scrollIntoView({ behavior: "smooth" });
         });
     }
 });
