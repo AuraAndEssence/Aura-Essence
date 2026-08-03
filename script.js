@@ -5,7 +5,7 @@ const MI_WHATSAPP = "56957301930";
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // 1. FUNCIONALIDAD DE BOTONES WHATSAPP (Soporta oferta y precio regular)
+    // 1. FUNCIONALIDAD DE BOTONES WHATSAPP
     const botonesWhatsApp = document.querySelectorAll(".whatsapp-btn");
 
     botonesWhatsApp.forEach(boton => {
@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const nombre = tarjetaProducto.querySelector(".product-name").innerText;
             const desc = tarjetaProducto.querySelector(".product-desc").innerText;
             
+            // Revisa si es oferta o precio normal
             const precioOferta = tarjetaProducto.querySelector(".price-offer");
             const precioNormal = tarjetaProducto.querySelector(".product-price");
             const precioFinal = precioOferta ? `${precioOferta.innerText} (Oferta)` : (precioNormal ? precioNormal.innerText : '');
@@ -28,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // 2. FILTRADO DINÁMICO (CATEGORÍAS Y CASAS DE PERFUMERÍA)
+    // 2. FILTRADO DINÁMICO
     const enlacesFiltro = document.querySelectorAll(".filter-btn");
     const tarjetasProductos = document.querySelectorAll(".product-card");
     const dropdownCasas = document.getElementById("brands-dropdown");
@@ -82,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // 3. SCROLL SUAVE AL BOTÓN DEL HERO
+    // 3. SCROLL SUAVE
     const botonExplorar = document.getElementById("explore-btn");
     const seccionCatalogo = document.getElementById("catalog");
 
