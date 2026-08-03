@@ -18,7 +18,7 @@ body {
     padding: 1.5rem 2rem;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 99999;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -38,6 +38,7 @@ body {
     display: flex;
     list-style: none;
     gap: 2rem;
+    align-items: center;
 }
 
 .nav-links a {
@@ -56,8 +57,53 @@ body {
     color: #C5A880;
 }
 
-.nav-icons {
-    font-size: 0.9rem;
+/* MENÚ DESPLEGABLE */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+    margin-bottom: -15px;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #161616;
+    min-width: 190px;
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.6);
+    z-index: 999999;
+    border-radius: 6px;
+    top: 100%;
+    left: 0;
+    border: 1px solid #2a2a2a;
+    overflow: hidden;
+}
+
+.dropdown-content a {
+    color: #ffffff !important;
+    padding: 12px 18px;
+    text-decoration: none;
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #222222;
+    color: #d4af37 !important;
+    padding-left: 22px;
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown.active .dropdown-content {
+    display: block !important;
 }
 
 /* HERO */
@@ -155,7 +201,7 @@ body {
 
 .product-card:hover {
     border-color: #e0e0e0;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.04);
 }
 
 .product-badge {
@@ -221,7 +267,7 @@ body {
     font-weight: 600;
 }
 
-/* BOTÓN FUNCIONAL */
+/* BOTÓN WHATSAPP */
 .action-container {
     margin-top: 1rem;
 }
@@ -241,7 +287,7 @@ body {
 }
 
 .whatsapp-btn:hover {
-    background-color: #128C7E; /* Cambia a verde sutil de WhatsApp al pasar el mouse */
+    background-color: #128C7E;
 }
 
 /* FOOTER */
@@ -254,12 +300,11 @@ body {
 
 .footer-content {
     max-width: 1200px;
-    margin: 0 auto display;
+    margin: 0 auto 2rem auto;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 2rem;
-    margin-bottom: 2rem;
 }
 
 .footer-title {
@@ -277,7 +322,24 @@ body {
     font-size: 0.7rem;
 }
 
+/* MEDIA QUERIES */
 @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .hero-title { font-size: 1.7rem; }
+    .nav-links { 
+        display: none; 
+    }
+    .hero-title { 
+        font-size: 1.7rem; 
+    }
+    .dropdown {
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+    .dropdown-content {
+        position: relative;
+        float: none;
+        min-width: 100%;
+        box-shadow: none;
+        background-color: #222;
+        top: 0;
+    }
 }
